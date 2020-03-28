@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
 
     Vector3 GetTextSpawnPosition()
     {
-        return transform.position + Vector3.one * .1f;
+        return transform.position + Vector3.one * .05f;
     }
 
     void GetInputs()
