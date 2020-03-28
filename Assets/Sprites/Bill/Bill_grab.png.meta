@@ -1,49 +1,43 @@
 fileFormatVersion: 2
-guid: 4374fcd671524aa4faeb9a13e8fd9783
+guid: 180d3ebae189ae14c95799957885c528
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 28649144917608812
-    second: Bill_idle_0
+      213: 4233492026576413336
+    second: Bill_grab_0
   - first:
-      213: -8515674274920142320
-    second: Bill_idle_1
+      213: 2095465682370086325
+    second: Bill_grab_1
   - first:
-      213: -3461736152323377777
-    second: Bill_idle_2
+      213: -3823612658027760428
+    second: Bill_grab_2
   - first:
-      213: 6232779948725226509
-    second: Bill_idle_3
+      213: 382750185731831759
+    second: Bill_grab_3
   - first:
-      213: -280195617898416991
-    second: Bill_idle_4
+      213: 8714526061193878775
+    second: Bill_grab_4
   - first:
-      213: -4614202628158615333
-    second: Bill_idle_5
+      213: -6145901718747200070
+    second: Bill_grab_5
   - first:
-      213: 1111205762820068482
-    second: Bill_idle_6
+      213: 1409455082110433189
+    second: Bill_grab_6
   - first:
-      213: 8668305810858120976
-    second: Bill_idle_7
+      213: -7888344029177549823
+    second: Bill_grab_7
   - first:
-      213: 4335451631700739449
-    second: Bill_idle_8
+      213: 7426853446767148061
+    second: Bill_grab_8
   - first:
-      213: 5867661243792637459
-    second: Bill_idle_9
+      213: -8258912170394755873
+    second: Bill_grab_9
   - first:
-      213: -2660637027800165985
-    second: Bill_idle_10
+      213: 1147355149869288857
+    second: Bill_grab_10
   - first:
-      213: -4904555623206819608
-    second: Bill_idle_11
-  - first:
-      213: -4538944614156924117
-    second: Bill_idle_12
-  - first:
-      213: 7578435099975785354
-    second: Bill_idle_13
+      213: -3570673937209830875
+    second: Bill_grab_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -152,12 +146,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bill_idle_0
+      name: Bill_grab_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -166,19 +160,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41e805a1dca5b5468ea2ccaa8cab63a
-      internalID: 28649144917608812
+      spriteID: cc1e68c72569a8247b29febe3a2998f8
+      internalID: 4233492026576413336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_1
+      name: Bill_grab_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 14
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -187,19 +181,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abeaa4aa8891dc34688ebcf0a6612d2d
-      internalID: -8515674274920142320
+      spriteID: 8887604aa0aa7c54fa22698d77a37e17
+      internalID: 2095465682370086325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_2
+      name: Bill_grab_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 28
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -208,19 +202,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 126cb4f5c8e369e439f21f1fdf7b83e8
-      internalID: -3461736152323377777
+      spriteID: 3ed56a94adb987a4a8c481f69e7fa461
+      internalID: -3823612658027760428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_3
+      name: Bill_grab_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 42
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -229,19 +223,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 556bde00ca99b894d9d6f1b3496e06c4
-      internalID: 6232779948725226509
+      spriteID: 5c1597546c0832e4a84125572165d239
+      internalID: 382750185731831759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_4
+      name: Bill_grab_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 56
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -250,19 +244,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d60bfb13e1285344a883081f6d5316e
-      internalID: -280195617898416991
+      spriteID: a189aaa72af7ea848add073d934fb8fa
+      internalID: 8714526061193878775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_5
+      name: Bill_grab_5
       rect:
         serializedVersion: 2
-        x: 80
+        x: 70
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -271,19 +265,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20338e372e79ca2489a79244e7bd6f2b
-      internalID: -4614202628158615333
+      spriteID: 582a728f88449be4d811ec4ecc7ec19f
+      internalID: -6145901718747200070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_6
+      name: Bill_grab_6
       rect:
         serializedVersion: 2
-        x: 96
+        x: 84
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -292,19 +286,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 879cba3115eeab841900b8c578580f13
-      internalID: 1111205762820068482
+      spriteID: 88b5ef28ff58269458a0101249301524
+      internalID: 1409455082110433189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_7
+      name: Bill_grab_7
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50291941176f0734bae20bf2c952c795
+      internalID: -7888344029177549823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bill_grab_8
       rect:
         serializedVersion: 2
         x: 112
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -313,19 +328,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a66a9062d419f9449b658ad6dbfacdf
-      internalID: 8668305810858120976
+      spriteID: d2cd3012cf671d54c907bbc1cdda6337
+      internalID: 7426853446767148061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_8
+      name: Bill_grab_9
       rect:
         serializedVersion: 2
-        x: 128
+        x: 126
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -334,19 +349,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4686a957251d4ba49a1c347cbc35351c
-      internalID: 4335451631700739449
+      spriteID: 69580ed4c45deda43977804d9954e8e9
+      internalID: -8258912170394755873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_9
+      name: Bill_grab_10
       rect:
         serializedVersion: 2
-        x: 144
+        x: 140
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -355,19 +370,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c42a2bffed9225b4ba4de6dee113fa20
-      internalID: 5867661243792637459
+      spriteID: 4e3c4b9081e4dea4e9fde2555f36307b
+      internalID: 1147355149869288857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_10
+      name: Bill_grab_11
       rect:
         serializedVersion: 2
-        x: 160
+        x: 154
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -376,71 +391,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 083a6a54c24dd6040a7058ede657693d
-      internalID: -2660637027800165985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bill_idle_11
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0cd8769f3c2a2c45ac1b2ed9a6854a5
-      internalID: -4904555623206819608
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bill_idle_12
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9bc4d6a5a043d544f9396bfb81dac7a4
-      internalID: -4538944614156924117
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bill_idle_13
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87bd841a84730114eadf91f19f31a093
-      internalID: 7578435099975785354
+      spriteID: 9ddf8aee77c98484a936c6d83495aa89
+      internalID: -3570673937209830875
       vertices: []
       indices: 
       edges: []

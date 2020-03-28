@@ -1,49 +1,55 @@
 fileFormatVersion: 2
-guid: 4374fcd671524aa4faeb9a13e8fd9783
+guid: c2f99236549ba574e8399445943e222b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 28649144917608812
-    second: Bill_idle_0
+      213: -6024615427236158922
+    second: Mandy_walk_0
   - first:
-      213: -8515674274920142320
-    second: Bill_idle_1
+      213: 4271181941362179024
+    second: Mandy_walk_1
   - first:
-      213: -3461736152323377777
-    second: Bill_idle_2
+      213: -6833580433644353035
+    second: Mandy_walk_2
   - first:
-      213: 6232779948725226509
-    second: Bill_idle_3
+      213: 3730036828942540960
+    second: Mandy_walk_3
   - first:
-      213: -280195617898416991
-    second: Bill_idle_4
+      213: -8744498934233298564
+    second: Mandy_walk_4
   - first:
-      213: -4614202628158615333
-    second: Bill_idle_5
+      213: -3384976880075570565
+    second: Mandy_walk_5
   - first:
-      213: 1111205762820068482
-    second: Bill_idle_6
+      213: -7824343023042284587
+    second: Mandy_walk_6
   - first:
-      213: 8668305810858120976
-    second: Bill_idle_7
+      213: -4355864220808200287
+    second: Mandy_walk_7
   - first:
-      213: 4335451631700739449
-    second: Bill_idle_8
+      213: -7412212226035680450
+    second: Mandy_walk_8
   - first:
-      213: 5867661243792637459
-    second: Bill_idle_9
+      213: -3411407358587756951
+    second: Mandy_walk_9
   - first:
-      213: -2660637027800165985
-    second: Bill_idle_10
+      213: 4161831551488757874
+    second: Mandy_walk_10
   - first:
-      213: -4904555623206819608
-    second: Bill_idle_11
+      213: -3312381043139196741
+    second: Mandy_walk_11
   - first:
-      213: -4538944614156924117
-    second: Bill_idle_12
+      213: -9130881746117764913
+    second: Mandy_walk_12
   - first:
-      213: 7578435099975785354
-    second: Bill_idle_13
+      213: 7953337711605873239
+    second: Mandy_walk_13
+  - first:
+      213: -6799929404060257133
+    second: Mandy_walk_14
+  - first:
+      213: -6711637479970731172
+    second: Mandy_walk_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -152,295 +158,337 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bill_idle_0
+      name: Mandy_walk_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41e805a1dca5b5468ea2ccaa8cab63a
-      internalID: 28649144917608812
+      spriteID: 64beadb63b6ac884cb1a859e7b726375
+      internalID: -6024615427236158922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_1
+      name: Mandy_walk_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abeaa4aa8891dc34688ebcf0a6612d2d
-      internalID: -8515674274920142320
+      spriteID: fec19a85fd4d92142a93db57af696659
+      internalID: 4271181941362179024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_2
+      name: Mandy_walk_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 126cb4f5c8e369e439f21f1fdf7b83e8
-      internalID: -3461736152323377777
+      spriteID: 8603eea776665f64781da8373339b5b0
+      internalID: -6833580433644353035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_3
+      name: Mandy_walk_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 556bde00ca99b894d9d6f1b3496e06c4
-      internalID: 6232779948725226509
+      spriteID: 37c94059efb38fe4198c1bb8dcd8e0d5
+      internalID: 3730036828942540960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_4
+      name: Mandy_walk_4
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d60bfb13e1285344a883081f6d5316e
-      internalID: -280195617898416991
+      spriteID: 82ddbdfafc25d7e429b1d1f9f488b5e0
+      internalID: -8744498934233298564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_5
+      name: Mandy_walk_5
       rect:
         serializedVersion: 2
         x: 80
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20338e372e79ca2489a79244e7bd6f2b
-      internalID: -4614202628158615333
+      spriteID: 848c3a4bb9ddd1c4284c6198344c43f6
+      internalID: -3384976880075570565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_6
+      name: Mandy_walk_6
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 879cba3115eeab841900b8c578580f13
-      internalID: 1111205762820068482
+      spriteID: f7f71292d5c1f40498bae73d13445e35
+      internalID: -7824343023042284587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_7
+      name: Mandy_walk_7
       rect:
         serializedVersion: 2
         x: 112
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a66a9062d419f9449b658ad6dbfacdf
-      internalID: 8668305810858120976
+      spriteID: 6917707c91f1b884489f3812715daa4c
+      internalID: -4355864220808200287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_8
+      name: Mandy_walk_8
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4686a957251d4ba49a1c347cbc35351c
-      internalID: 4335451631700739449
+      spriteID: 4e1695e2a0b55314cbf35be7b2d47ffa
+      internalID: -7412212226035680450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_9
+      name: Mandy_walk_9
       rect:
         serializedVersion: 2
         x: 144
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c42a2bffed9225b4ba4de6dee113fa20
-      internalID: 5867661243792637459
+      spriteID: 5a1f486ade639bf4eacc3ef5dc1c5dfc
+      internalID: -3411407358587756951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_10
+      name: Mandy_walk_10
       rect:
         serializedVersion: 2
         x: 160
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 083a6a54c24dd6040a7058ede657693d
-      internalID: -2660637027800165985
+      spriteID: 62f8636e5c0d09d4cae637111810fc9a
+      internalID: 4161831551488757874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_11
+      name: Mandy_walk_11
       rect:
         serializedVersion: 2
         x: 176
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0cd8769f3c2a2c45ac1b2ed9a6854a5
-      internalID: -4904555623206819608
+      spriteID: 8b3b5a5dba1f83347b255a5be53013fc
+      internalID: -3312381043139196741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_12
+      name: Mandy_walk_12
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bc4d6a5a043d544f9396bfb81dac7a4
-      internalID: -4538944614156924117
+      spriteID: 8128a72e64514834ab41cd9b585d3736
+      internalID: -9130881746117764913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_idle_13
+      name: Mandy_walk_13
       rect:
         serializedVersion: 2
         x: 208
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87bd841a84730114eadf91f19f31a093
-      internalID: 7578435099975785354
+      spriteID: 232c41bd0f0c89845adc5e4c63548e42
+      internalID: 7953337711605873239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mandy_walk_14
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 16
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07ef700511af8d47b159b439f671ff8
+      internalID: -6799929404060257133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mandy_walk_15
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 16
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635de7e602f620640bdba363e6c63357
+      internalID: -6711637479970731172
       vertices: []
       indices: 
       edges: []

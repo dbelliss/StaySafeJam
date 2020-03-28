@@ -75,14 +75,25 @@ public class PlayerController : MonoBehaviour
     float maxPullPower = 50f;
 
     [SerializeField]
-    GameObject liftTriggers;
+    LiftTrigger liftTrigger;
 
     // Animations
     SpriteRenderer sr;
+    Animator animator;
+    const string animIsWalkingID = "isWalking";
+    const string animVerticalSpeedID = "verticalSpeed";
+    const string animIsGroundedID = "isGrounded";
+    const string animIsGrabbing = "isGrabbing";
 
     // Music
     AudioSource jumpSource;
-   
+
+    [SerializeField]
+    Transform grabPivot;
+    [SerializeField]
+    float grabDistance = 1f;
+    Ring grabbedRing;
+
 
     private void Awake()
     {
@@ -116,6 +127,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         jumpSource = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -148,6 +160,19 @@ public class PlayerController : MonoBehaviour
         {
             sr.flipX = true;
         }
+
+        if (Mathf.Abs(rb.velocity.x) > .1f)
+        {
+            animator.SetBool(animIsWalkingID, true);
+        }
+        else
+        {
+            animator.SetBool(animIsWalkingID, false);
+        }
+
+        animator.SetFloat(animVerticalSpeedID, rb.velocity.y);
+        animator.SetBool(animIsGroundedID, isGrounded);
+        animator.SetBool(animIsGrabbing, isGrabbing);
     }
 
     void CheckGrounded()
@@ -244,7 +269,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            stopGrabbing = false;
+            stopGrabbing = true;
         }
 
         float pull = Input.GetAxis("Pull" + playerInputIdentifier);
@@ -290,7 +315,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (isJumping && isGrounded)
+        if (isJumping && isGrounded || isGrabbing)
         {
             jumpSource.Play();
             rb.AddForce(Vector2.up * jumpForce);
@@ -340,6 +365,23 @@ public class PlayerController : MonoBehaviour
             isGrabbing = false;
             worldCanvas.SpawnText(transform.position + Vector3.one, "Release!", Color.black);
         }
+        if (isGrabbing)
+        {
+            Ring ring = RingManager.instance.GetClosestRing(grabPivot.position, grabDistance);
+            if (ring)
+            {
+                Vector3 pivotOffset = grabPivot.localPosition;
+                Debug.Log(pivotOffset);
+                Debug.Log(ring.transform.position);
+                transform.position = ring.transform.position - pivotOffset;
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+            }
+            else
+            {
+                Debug.Log("No ring");
+                isGrabbing = false;
+            }
+        }
 
         if (startHolding && !isHolding)
         {
@@ -360,13 +402,13 @@ public class PlayerController : MonoBehaviour
         {
             worldCanvas.SpawnText(GetTextSpawnPosition(), "Ready!", Color.black);
             isLifting = true;
-            liftTriggers.SetActive(true);
+            liftTrigger.SetTrigger(true);
         }
         
         if (stopLifting && isLifting)
         {
             worldCanvas.SpawnText(GetTextSpawnPosition(), "Done!", Color.black);
-            liftTriggers.SetActive(false);
+            liftTrigger.SetTrigger(false);
             isLifting = false;
         }
 

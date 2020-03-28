@@ -7,6 +7,8 @@ public class LiftTrigger : MonoBehaviour
     [SerializeField]
     PlayerController toToss;
 
+    Collider2D trigger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +16,16 @@ public class LiftTrigger : MonoBehaviour
         {
             Debug.LogError("No object to toss");
         }
+        trigger = GetComponent<Collider2D>();
+        trigger.enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void SetTrigger(bool isOn)
+    {
+        trigger.enabled = isOn;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject == toToss.gameObject)
