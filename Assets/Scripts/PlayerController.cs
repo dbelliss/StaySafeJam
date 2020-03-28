@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour
     float lastSwap = 0;
 
     [SerializeField]
+    float friction = .4f;
+
+    [SerializeField]
     float pullForce = 1;
 
     [SerializeField]
@@ -73,6 +76,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     GameObject liftTriggers;
+
+    // Animations
+    SpriteRenderer sr;
+
+    // Music
+    AudioSource jumpSource;
+   
 
     private void Awake()
     {
@@ -106,6 +116,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        jumpSource = GetComponent<AudioSource>();
+        sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         distanceJoint = GetComponent<DistanceJoint2D>();
         springJoint = GetComponent<SpringJoint2D>();
@@ -123,6 +135,19 @@ public class PlayerController : MonoBehaviour
     {
         GetInputs();
         CheckGrounded();
+        UpdateAnimations();
+    }
+
+    void UpdateAnimations()
+    {
+        if (rb.velocity.x > 0)
+        {
+            sr.flipX = false;
+        }
+        if (rb.velocity.x < 0)
+        {
+            sr.flipX = true;
+        }
     }
 
     void CheckGrounded()
@@ -130,7 +155,7 @@ public class PlayerController : MonoBehaviour
         if (groundCheck)
         {
             Debug.DrawLine(groundCheck.transform.position, groundCheck.transform.position + Vector3.down * .1f, Color.red, .5f);
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(groundCheck.position, .1f, Vector2.down, .1f);
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(groundCheck.position, .05f, Vector2.down, .2f);
             foreach (RaycastHit2D hit in hits)
             {
                 if (hit.transform.gameObject.tag == GameManager.GROUND_TAG)
@@ -267,6 +292,7 @@ public class PlayerController : MonoBehaviour
 
         if (isJumping && isGrounded)
         {
+            jumpSource.Play();
             rb.AddForce(Vector2.up * jumpForce);
         }
 
@@ -277,6 +303,10 @@ public class PlayerController : MonoBehaviour
         else if (isMovingRight)
         {
             rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(rb.velocity.x * friction, rb.velocity.y);
         }
 
         if (startPulling && !isPulling)
@@ -324,7 +354,6 @@ public class PlayerController : MonoBehaviour
             isHolding = false;
             curDistanceJointDistance = maxDistanceJointDistance;
             UpdateDistanceJointDistance();
-            player1.distanceJoint.enableCollision = true;
         }
 
         if (startLifting && !isLifting)
@@ -332,7 +361,6 @@ public class PlayerController : MonoBehaviour
             worldCanvas.SpawnText(GetTextSpawnPosition(), "Ready!", Color.black);
             isLifting = true;
             liftTriggers.SetActive(true);
-            player1.distanceJoint.enableCollision = !player1.distanceJoint.enableCollision;
         }
         
         if (stopLifting && isLifting)
@@ -340,7 +368,6 @@ public class PlayerController : MonoBehaviour
             worldCanvas.SpawnText(GetTextSpawnPosition(), "Done!", Color.black);
             liftTriggers.SetActive(false);
             isLifting = false;
-            player1.distanceJoint.enableCollision = !player1.distanceJoint.enableCollision;
         }
 
         // Mark inputs as processed

@@ -10,6 +10,8 @@ public class CameraFollow : MonoBehaviour
     Vector3 offset;
     float leftBound = -1;
     float rightBound = 1;
+    float topBound = -1;
+    float bottomBound = 1;
 
     float stepSize = .01f;
     
@@ -51,6 +53,16 @@ public class CameraFollow : MonoBehaviour
         if ((transform.position - followPosition).x > rightBound)
         {
             transform.position += Vector3.left * stepSize;
+        }
+
+
+        if ((transform.position - followPosition).y < bottomBound)
+        {
+            transform.position += Vector3.up * stepSize;
+        }
+        if ((transform.position - followPosition).y > topBound)
+        {
+            transform.position += Vector3.down * stepSize;
         }
     }
 }
