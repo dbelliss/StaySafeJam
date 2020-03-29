@@ -57,8 +57,8 @@ public class VertletRope : MonoBehaviour
             lineColor = Color.cyan;
         }
 
-        lr.startColor = lineColor;
-        lr.endColor = lineColor;
+        //lr.startColor = lineColor;
+        //lr.endColor = lineColor;
     }
 
     private void FixedUpdate()
