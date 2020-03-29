@@ -32,11 +32,6 @@ public class MainMenuManager : MonoBehaviour
         GameManager.instance.ToLevel();
     }
 
-    public void ToggleSinglePlayer(bool val)
-    {
-        GameManager.instance.SetSinglePlayer(!val);
-    }
-
     public void Quit()
     {
         Application.Quit();
