@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
             fadeCanvas.alpha = 1;
             StartCoroutine(FadeIn(1f));
         }
+        PlayerPrefs.SetString(levelPrefix + "1", UNLOCKED);
     }
 
     public bool isSinglePlayer()
@@ -102,9 +103,10 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        int nextLevelIndex = SceneManager.GetSceneByName(levelPrefix + "1").buildIndex + 1;
+        char[] chars = SceneManager.GetActiveScene().name.ToCharArray();
+        int nextLevelIndex = int.Parse(chars[chars.Length - 1].ToString()) + 1;
         PlayerPrefs.SetString(levelPrefix + nextLevelIndex.ToString(), UNLOCKED);
-        StartCoroutine(levelPrefix + nextLevelIndex);
+        StartCoroutine(LoadLevel(levelPrefix + nextLevelIndex));
     }
 
     public bool IsLevelUnlocked(int levelNum)
@@ -114,7 +116,6 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
     }
 
@@ -123,5 +124,18 @@ public class GameManager : MonoBehaviour
         yield return FadeOut(1f);
         SceneManager.LoadScene(levelName);
         yield return FadeIn(1f);
+    }
+
+    public void LoadLevel(int levelNum)
+    {
+        StartCoroutine(LoadLevel(levelPrefix + levelNum.ToString()));
+    }
+
+    public void ClearUnlocks()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            PlayerPrefs.SetString(levelPrefix + i.ToString(), "");
+        }
     }
 }

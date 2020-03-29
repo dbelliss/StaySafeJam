@@ -16,6 +16,11 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
+    public void ToMainMenu()
+    {
+        GameManager.instance.ToMainMenu();
+    }
+
     public void StartSinglePlayer()
     {
         GameManager.instance.SetSinglePlayer(true);
@@ -31,5 +36,10 @@ public class MainMenuManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void LoadLevel(int i)
+    {
+        GameManager.instance.LoadLevel(i);
     }
 }
