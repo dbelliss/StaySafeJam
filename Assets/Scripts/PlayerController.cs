@@ -569,6 +569,7 @@ public class PlayerController : MonoBehaviour
 
     public void Respawn()
     {
+        animator.SetTrigger(animRespawnID);
         transform.position = RoomManager.instance.GetCheckpoint().transform.position + new Vector3(Random.Range(-.5f, .5f), 0, 0);
     }
 
