@@ -66,6 +66,13 @@ public class RoomManager : MonoBehaviour
         RoomCamera.instance.StartTransition(cameraPositions[curRoomNum].transform.position);
     }
 
+    public void Die()
+    {
+        PlayerController.player1.Die();
+        PlayerController.player2.Die();
+        StartRespawn();
+    }
+
     public Grave GetCheckpoint()
     {
         return curCheckpoint;
@@ -89,8 +96,8 @@ public class RoomManager : MonoBehaviour
     private IEnumerator Respawn()
     {
         PlayerController.blockingInput = true;
-        yield return new WaitForSeconds(.5f);
-        yield return GameManager.instance.FadeOut(1f);
+        yield return new WaitForSeconds(.3f);
+        yield return GameManager.instance.FadeOut(.8f);
         PlayerController.player1.Respawn();
         PlayerController.player2.Respawn();
         yield return GameManager.instance.FadeIn(1f);

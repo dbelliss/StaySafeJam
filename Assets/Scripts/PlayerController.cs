@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
     const string animIsGroundedID = "isGrounded";
     const string animIsGrabbing = "isGrabbing";
     const string animRespawnID = "respawn";
-    const string animDieID = "die";
+    const string animDieID = "dead";
     const string animTossReadyID = "isTossReady";
     const string animTossID = "toss";
 
@@ -166,6 +166,12 @@ public class PlayerController : MonoBehaviour
         {
             GetInputs();
         }
+        else
+        {
+            isMovingLeft = false;
+            isMovingRight = false;
+            ClearInputs();
+        }
 
         CheckGrounded();
         UpdateAnimations();
@@ -173,11 +179,11 @@ public class PlayerController : MonoBehaviour
 
     void UpdateAnimations()
     {
-        if (rb.velocity.x > 0)
+        if (rb.velocity.x > 0.1f)
         {
             sr.flipX = false;
         }
-        if (rb.velocity.x < 0)
+        if (rb.velocity.x < -.1f)
         {
             sr.flipX = true;
         }
@@ -333,7 +339,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            Die();
+            RoomManager.instance.Die();
         }
     }
 
@@ -441,7 +447,11 @@ public class PlayerController : MonoBehaviour
             isLifting = false;
         }
 
-        // Mark inputs as processed
+        ClearInputs();
+    }
+
+    private void ClearInputs()
+    {
         stopHolding = false;
         startHolding = false;
         startLifting = false;
@@ -451,25 +461,11 @@ public class PlayerController : MonoBehaviour
         stopPulling = false;
         startGrabbing = false;
         stopGrabbing = false;
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.tag);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == GameManager.SPIKE_TAG)
-        {
-            Die();   
-        }
-        if (collision.gameObject.tag == GameManager.ENEMY_TAG)
-        {
-            Die();
-        }
     }
 
     public void GrabRing(Ring ring)
@@ -497,23 +493,24 @@ public class PlayerController : MonoBehaviour
 
     public void Tossed()
     {
-        Debug.Log("Tossing");
+        rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(liftForce * Vector2.up);
     }
 
     public void Toss()
     {
+        Debug.Log("Tossing");
         animator.SetTrigger(animTossID);
     }
 
     public void Die()
     {
-        jumpSource.PlayOneShot(damagedSound);
-        rb.simulated = false;
+        ClearInputs();
         rb.velocity = Vector3.zero;
+        jumpSource.PlayOneShot(damagedSound);
         UpdateAnimations();
+        ClearInputs();
         animator.SetTrigger(animDieID);
-        RoomManager.instance.StartRespawn();
     }
 
     public void Pulled()
@@ -558,7 +555,7 @@ public class PlayerController : MonoBehaviour
 
     public void Respawn()
     {
-        rb.simulated = true;
+        Debug.Log("Respawning " + playerType);
         animator.SetTrigger(animRespawnID);
         transform.position = RoomManager.instance.GetCheckpoint().transform.position + new Vector3(Random.Range(-.5f, .5f), 0, 0);
     }
