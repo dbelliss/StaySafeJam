@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
     const string animIsGrabbing = "isGrabbing";
     const string animRespawnID = "respawn";
     const string animDieID = "die";
+    const string animTossReadyID = "isTossReady";
+    const string animTossID = "toss";
 
     // Music
     AudioSource jumpSource;
@@ -187,6 +189,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetBool(animIsWalkingID, false);
+        }
+
+        if (isLifting)
+        {
+            animator.SetBool(animTossReadyID, true);
+        }
+        else
+        {
+            animator.SetBool(animTossReadyID, false);
         }
 
         animator.SetFloat(animVerticalSpeedID, rb.velocity.y);
@@ -484,10 +495,15 @@ public class PlayerController : MonoBehaviour
         curRing = null;
     }
 
-    public void Toss()
+    public void Tossed()
     {
         Debug.Log("Tossing");
         rb.AddForce(liftForce * Vector2.up);
+    }
+
+    public void Toss()
+    {
+        animator.SetTrigger(animTossID);
     }
 
     public void Die()
@@ -495,6 +511,7 @@ public class PlayerController : MonoBehaviour
         jumpSource.PlayOneShot(damagedSound);
         rb.simulated = false;
         rb.velocity = Vector3.zero;
+        UpdateAnimations();
         animator.SetTrigger(animDieID);
         RoomManager.instance.StartRespawn();
     }
