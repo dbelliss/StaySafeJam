@@ -410,12 +410,12 @@ public class PlayerController : MonoBehaviour
       rb.velocity = new Vector2(rb.velocity.x * friction, rb.velocity.y);
     }
 
-    if (startPulling && !isPulling)
+    if (startPulling && !isPulling && !curRing)
     {
       isPulling = true;
       //worldCanvas.SpawnText(GetTextSpawnPosition(), "Get over here!", Color.black);
     }
-    else if (isPulling && Time.time - lastPullTime > pullCooldown)
+    else if (isPulling && Time.time - lastPullTime > pullCooldown && !curRing)
     {
       lastPullTime = Time.time;
       if (player1 == this)
