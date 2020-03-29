@@ -1,55 +1,52 @@
 fileFormatVersion: 2
-guid: 6dd033b2b345cab43bac0b56c430c7b6
+guid: d4cd0709eb223424b88e704b74700fdc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6399333937125561301
-    second: Bill_walk_0
+      213: 3532992451535655517
+    second: Grave_0
   - first:
-      213: 2926635099539791263
-    second: Bill_walk_1
+      213: -3248054097576891925
+    second: Grave_1
   - first:
-      213: 3531526944395720211
-    second: Bill_walk_2
+      213: -9176486570571846913
+    second: Grave_2
   - first:
-      213: 5130009210647289734
-    second: Bill_walk_3
+      213: 470083881666486203
+    second: Grave_3
   - first:
-      213: -8386898943955345875
-    second: Bill_walk_4
+      213: -270551882524465968
+    second: Grave_4
   - first:
-      213: -8800836125832860579
-    second: Bill_walk_5
+      213: 2782216731544824913
+    second: Grave_5
   - first:
-      213: 938988556954438168
-    second: Bill_walk_6
+      213: -3861474954593632829
+    second: Grave_6
   - first:
-      213: 9075839894290272424
-    second: Bill_walk_7
+      213: -2681112332247535532
+    second: Grave_7
   - first:
-      213: -7266178521349178297
-    second: Bill_walk_8
+      213: 322845829731627971
+    second: Grave_8
   - first:
-      213: -4961297605592348609
-    second: Bill_walk_9
+      213: -3615170336194943015
+    second: Grave_9
   - first:
-      213: 2808274369581620145
-    second: Bill_walk_10
+      213: -1395385317012451142
+    second: Grave_10
   - first:
-      213: -7476357988831792361
-    second: Bill_walk_11
+      213: -4331491320870236199
+    second: Grave_11
   - first:
-      213: 257541101581529077
-    second: Bill_walk_12
+      213: 58537057581353547
+    second: Grave_12
   - first:
-      213: -5444520783336333448
-    second: Bill_walk_13
+      213: 9205776914631400008
+    second: Grave_13
   - first:
-      213: 7976374731099736151
-    second: Bill_walk_14
-  - first:
-      213: -6766649373573531679
-    second: Bill_walk_15
+      213: -8712531329757087863
+    second: Grave_14
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -109,8 +106,8 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
-    textureFormat: 4
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -121,8 +118,8 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
-    resizeAlgorithm: 1
-    textureFormat: 4
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -133,8 +130,8 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
-    resizeAlgorithm: 1
-    textureFormat: 4
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -145,8 +142,8 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
-    resizeAlgorithm: 1
-    textureFormat: 4
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -158,337 +155,316 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bill_walk_0
+      name: Grave_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d05b5a984926994790cbc371eda1fce
-      internalID: -6399333937125561301
+      spriteID: b58f57f432b1e974cb372fdbb1c10859
+      internalID: 3532992451535655517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_1
+      name: Grave_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59be756eadea1094e9d2787e142c64fa
-      internalID: 2926635099539791263
+      spriteID: 1b056f4a2dda07549b837e355d8a509d
+      internalID: -3248054097576891925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_2
+      name: Grave_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d6df6d0472a5bb42a8412c35aa63681
-      internalID: 3531526944395720211
+      spriteID: 86b693cee76dbc24e93d3bfaecd8d25b
+      internalID: -9176486570571846913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_3
+      name: Grave_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54ff1915fb0b2c849a8d2bfff2c8a5e0
-      internalID: 5130009210647289734
+      spriteID: 14ee0671842612a478038a6d852308eb
+      internalID: 470083881666486203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_4
+      name: Grave_4
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29deeef9a9b700b4493fb6ec0d573065
-      internalID: -8386898943955345875
+      spriteID: 49581e640078f144f9b027d586bf1248
+      internalID: -270551882524465968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_5
+      name: Grave_5
       rect:
         serializedVersion: 2
         x: 80
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd05366c0a17ccb479c5ed24eefd4463
-      internalID: -8800836125832860579
+      spriteID: cb0e5c18d586ae944b7ee4790c5472fa
+      internalID: 2782216731544824913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_6
+      name: Grave_6
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa201955776e9cd4c86fe1408d43285d
-      internalID: 938988556954438168
+      spriteID: c37a5faf23f0a42479054387656fa641
+      internalID: -3861474954593632829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_7
+      name: Grave_7
       rect:
         serializedVersion: 2
         x: 112
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9bb13be0c757104fa42eb711b18b2a5
-      internalID: 9075839894290272424
+      spriteID: f5b14a40bc36dc744ab726e5e481bacd
+      internalID: -2681112332247535532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_8
+      name: Grave_8
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abbbc97a268c51745ba53d623ef357cc
-      internalID: -7266178521349178297
+      spriteID: 49b27cb81aeb1d04eb504fe7730c87a9
+      internalID: 322845829731627971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_9
+      name: Grave_9
       rect:
         serializedVersion: 2
         x: 144
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52fce5bf4bcf21b4dbc07a7bfe9716b2
-      internalID: -4961297605592348609
+      spriteID: daefb9d13accd38419b64cbfb464f3fa
+      internalID: -3615170336194943015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_10
+      name: Grave_10
       rect:
         serializedVersion: 2
         x: 160
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0baac3764d5181945a499e7c8c2ecee1
-      internalID: 2808274369581620145
+      spriteID: 6e6c5795ed96a4a41b018d18018c745a
+      internalID: -1395385317012451142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_11
+      name: Grave_11
       rect:
         serializedVersion: 2
         x: 176
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5fda45a3500c964082bce062b856f78
-      internalID: -7476357988831792361
+      spriteID: 9debe6952788d5d49923ad23ca82e59f
+      internalID: -4331491320870236199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_12
+      name: Grave_12
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86dea2f68e27a3d439cff3cb2a71422b
-      internalID: 257541101581529077
+      spriteID: a40992a0381a180479f556113c323f6d
+      internalID: 58537057581353547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_13
+      name: Grave_13
       rect:
         serializedVersion: 2
         x: 208
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ad7a943d55fe6440b8efa5b73452ec5
-      internalID: -5444520783336333448
+      spriteID: 95bed6271b8d29b4093afcc04ad8f85e
+      internalID: 9205776914631400008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bill_walk_14
+      name: Grave_14
       rect:
         serializedVersion: 2
         x: 224
         y: 0
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad371b8f3f5845f4b8d46d1c06b8bce1
-      internalID: 7976374731099736151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bill_walk_15
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2055e2047dc2ae94d99572a0e14edc3e
-      internalID: -6766649373573531679
+      spriteID: 554419a080d655344b39db69f07ee83f
+      internalID: -8712531329757087863
       vertices: []
       indices: 
       edges: []

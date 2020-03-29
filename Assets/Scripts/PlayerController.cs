@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static bool blockingInput = false;
 
     [SerializeField]
     PlayerType playerType;
@@ -84,6 +85,8 @@ public class PlayerController : MonoBehaviour
     const string animVerticalSpeedID = "verticalSpeed";
     const string animIsGroundedID = "isGrounded";
     const string animIsGrabbing = "isGrabbing";
+    const string animRespawnID = "respawn";
+    const string animDieID = "die";
 
     // Music
     AudioSource jumpSource;
@@ -145,7 +148,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetInputs();
+        if (!blockingInput)
+        {
+            GetInputs();
+        }
+
         CheckGrounded();
         UpdateAnimations();
     }
@@ -299,6 +306,12 @@ public class PlayerController : MonoBehaviour
         {
             stopHolding = true;
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            Die();
+        }
     }
 
     private void FixedUpdate()
@@ -358,7 +371,6 @@ public class PlayerController : MonoBehaviour
         if (startGrabbing && !isGrabbing)
         {
             isGrabbing = true;
-            worldCanvas.SpawnText(transform.position + Vector3.one, "Grabbing!", Color.black);
         }
         else if (stopGrabbing && isGrabbing)
         {
@@ -448,6 +460,8 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         Debug.Log("Dying");
+        animator.SetTrigger(animDieID);
+        RoomManager.instance.StartRespawn();
     }
 
     public void Pulled()
@@ -488,5 +502,11 @@ public class PlayerController : MonoBehaviour
     public void UpdateDistanceJointDistance()
     {
         player1.distanceJoint.distance = Mathf.Min(curDistanceJointDistance, GetOtherPlayer().curDistanceJointDistance);
+    }
+
+    public void Respawn()
+    {
+        animator.SetTrigger(animRespawnID);
+        transform.position = RoomManager.instance.GetCheckpoint().transform.position + new Vector3(Random.Range(-.5f, .5f), 0, 0);
     }
 }

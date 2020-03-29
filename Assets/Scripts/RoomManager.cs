@@ -8,13 +8,13 @@ public class RoomManager : MonoBehaviour
     [SerializeField]
     GameObject cameraPositionsGroup;
     [SerializeField]
-    GameObject checkpointsGroup;
-    [SerializeField]
     GameObject roomTransitionsGroup;
 
     List<GameObject> cameraPositions = new List<GameObject>();
-    List<GameObject> checkpoints = new List<GameObject>();
+    List<Grave> checkpoints = new List<Grave>();
     List<GameObject> roomTransitions = new List<GameObject>();
+
+    Grave curCheckpoint;
 
     public static RoomManager instance;
     int curRoomNum = 0;
@@ -27,7 +27,7 @@ public class RoomManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!cameraPositionsGroup || !checkpointsGroup || !roomTransitionsGroup)
+        if (!cameraPositionsGroup || !roomTransitionsGroup)
         {
             Debug.LogError("Mising group");
             return;
@@ -38,26 +38,21 @@ public class RoomManager : MonoBehaviour
             cameraPositions.Add(child.gameObject);
         }
 
-        foreach (Transform child in checkpointsGroup.transform)
-        {
-            checkpoints.Add(child.gameObject);
-        }
-
         foreach (Transform child in roomTransitionsGroup.transform)
         {
             roomTransitions.Add(child.gameObject);
         }
 
-        if (!(cameraPositions.Count == checkpoints.Count && cameraPositions.Count == roomTransitions.Count))
+        if (!(cameraPositions.Count == roomTransitions.Count))
         {
             Debug.LogError("Unequal number of camera positions, checkpoints, and room transitions");
         }
 
         Camera.main.transform.position = cameraPositions[curRoomNum].transform.position;
 
-        for (int i = 1; i < checkpoints.Count; i++)
+        if (checkpoints.Count > 0)
         {
-            checkpoints[i].SetActive(false);
+            checkpoints[0].Activate();
         }
     }
 
@@ -76,9 +71,36 @@ public class RoomManager : MonoBehaviour
         RoomCamera.instance.StartTransition(cameraPositions[curRoomNum].transform.position);
     }
 
-    public GameObject GetCheckpoint()
+    public Grave GetCheckpoint()
     {
-        return checkpoints[curRoomNum];
+        return curCheckpoint;
+    }
+
+    public void GraveSetCheckpoint(Grave g)
+    {
+        curCheckpoint = g;
+    }
+
+    public void AddCheckpoint(Grave g)
+    {
+        checkpoints.Add(g);
+    }
+
+    public void StartRespawn()
+    {
+        StartCoroutine(Respawn());
+    }
+
+    private IEnumerator Respawn()
+    {
+        PlayerController.blockingInput = true;
+        yield return new WaitForSeconds(.5f);
+        yield return GameManager.instance.FadeOut(1f);
+        PlayerController.player1.Respawn();
+        PlayerController.player2.Respawn();
+        yield return GameManager.instance.FadeIn(1f);
+        PlayerController.blockingInput = false;
+
     }
 
 }
