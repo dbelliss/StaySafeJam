@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     bool isHoldingSwap = false;
     Rigidbody2D rb;
 
+    Ring curRing;
+
     [SerializeField]
     Transform groundCheck;
 
@@ -92,10 +94,19 @@ public class PlayerController : MonoBehaviour
     AudioSource jumpSource;
 
     [SerializeField]
+    AudioClip grabSound;
+    [SerializeField]
+    AudioClip damagedSound;
+    [SerializeField]
+    AudioClip grabReleaseSound;
+
+    [SerializeField]
     Transform grabPivot;
     [SerializeField]
     float grabDistance = 1f;
     Ring grabbedRing;
+
+    Collider2D collider;
 
 
     private void Awake()
@@ -130,6 +141,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        collider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         jumpSource = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
@@ -328,7 +340,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (isJumping && isGrounded || isGrabbing)
+        if (isJumping && isGrounded)
         {
             jumpSource.Play();
             rb.AddForce(Vector2.up * jumpForce);
@@ -374,24 +386,18 @@ public class PlayerController : MonoBehaviour
         }
         else if (stopGrabbing && isGrabbing)
         {
-            isGrabbing = false;
-            worldCanvas.SpawnText(transform.position + Vector3.one, "Release!", Color.black);
+            ReleaseRing();
         }
         if (isGrabbing)
         {
             Ring ring = RingManager.instance.GetClosestRing(grabPivot.position, grabDistance);
             if (ring)
             {
-                Vector3 pivotOffset = grabPivot.localPosition;
-                Debug.Log(pivotOffset);
-                Debug.Log(ring.transform.position);
-                transform.position = ring.transform.position - pivotOffset;
-                rb.velocity = new Vector2(rb.velocity.x, 0);
+                GrabRing(ring);
             }
             else
             {
-                Debug.Log("No ring");
-                isGrabbing = false;
+                ReleaseRing();
             }
         }
 
@@ -449,6 +455,33 @@ public class PlayerController : MonoBehaviour
         {
             Die();   
         }
+        if (collision.gameObject.tag == GameManager.ENEMY_TAG)
+        {
+            Die();
+        }
+    }
+
+    public void GrabRing(Ring ring)
+    {
+        if (!curRing)
+        {
+            jumpSource.PlayOneShot(grabSound);
+        }
+        curRing = ring;
+        Vector3 pivotOffset = grabPivot.localPosition;
+        transform.position = ring.transform.position - pivotOffset;
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+    }
+
+    public void ReleaseRing()
+    {
+        if (curRing)
+        {
+            jumpSource.PlayOneShot(grabReleaseSound);
+            rb.AddForce(jumpForce * Vector2.up);
+        }
+        isGrabbing = false;
+        curRing = null;
     }
 
     public void Toss()
@@ -459,7 +492,9 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Dying");
+        jumpSource.PlayOneShot(damagedSound);
+        rb.simulated = false;
+        rb.velocity = Vector3.zero;
         animator.SetTrigger(animDieID);
         RoomManager.instance.StartRespawn();
     }
@@ -506,6 +541,7 @@ public class PlayerController : MonoBehaviour
 
     public void Respawn()
     {
+        rb.simulated = true;
         animator.SetTrigger(animRespawnID);
         transform.position = RoomManager.instance.GetCheckpoint().transform.position + new Vector3(Random.Range(-.5f, .5f), 0, 0);
     }

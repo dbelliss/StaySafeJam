@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static string GROUND_TAG = "Ground";
     public static string PLAYER_TAG = "Player";
     public static string SPIKE_TAG = "Spike";
+    public static string ENEMY_TAG = "Enemy";
     public static string RING_TAG = "Ring";
 
     public static GameManager instance;

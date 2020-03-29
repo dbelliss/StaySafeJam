@@ -8,16 +8,25 @@ public class Grave : MonoBehaviour
     const string animActivateID = "activate";
     const string animDeactivateID = "deactivate";
 
+    [SerializeField]
+    bool isFirst = false;
+
+    AudioSource audioSource;
+
     private void Awake()
     {
         RoomManager.instance.AddCheckpoint(this);
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        if (isFirst)
+        {
+            Activate();
+        }
     }
 
     // Update is called once per frame
@@ -28,7 +37,7 @@ public class Grave : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == GameManager.PLAYER_TAG)
+        if (collision.gameObject.tag == GameManager.PLAYER_TAG && RoomManager.instance.GetCheckpoint() != this)
         {
             Activate();
         }
@@ -40,6 +49,7 @@ public class Grave : MonoBehaviour
         if (lastCheckpoint)
         {
             lastCheckpoint.Deactivate();
+            audioSource.PlayOneShot(audioSource.clip);
         }
         
         RoomManager.instance.GraveSetCheckpoint(this);

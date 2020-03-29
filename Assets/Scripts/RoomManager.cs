@@ -49,11 +49,6 @@ public class RoomManager : MonoBehaviour
         }
 
         Camera.main.transform.position = cameraPositions[curRoomNum].transform.position;
-
-        if (checkpoints.Count > 0)
-        {
-            checkpoints[0].Activate();
-        }
     }
 
     public void NextRoom()

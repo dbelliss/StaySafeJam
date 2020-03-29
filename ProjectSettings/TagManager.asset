@@ -8,6 +8,7 @@ TagManager:
   - Spike
   - Ground
   - Grave
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -51,11 +52,11 @@ TagManager:
   - name: Foreground
     uniqueID: 3005349921
     locked: 0
-  - name: Characters
-    uniqueID: 341936657
-    locked: 0
   - name: Objects
     uniqueID: 2395363163
+    locked: 0
+  - name: Characters
+    uniqueID: 341936657
     locked: 0
   - name: Players
     uniqueID: 1113923193
