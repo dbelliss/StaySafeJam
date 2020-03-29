@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     CanvasGroup fadeCanvas;
 
+    const string levelPrefix = "Level";
+
+    const string UNLOCKED = "UNLOCKED";
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -93,7 +97,19 @@ public class GameManager : MonoBehaviour
 
     public void ToLevel()
     {
-        StartCoroutine(LoadLevel("MechanicsTest"));
+        StartCoroutine(LoadLevel(levelPrefix + "1"));
+    }
+
+    public void NextLevel()
+    {
+        int nextLevelIndex = SceneManager.GetSceneByName(levelPrefix + "1").buildIndex + 1;
+        PlayerPrefs.SetString(levelPrefix + nextLevelIndex.ToString(), UNLOCKED);
+        StartCoroutine(levelPrefix + nextLevelIndex);
+    }
+
+    public bool IsLevelUnlocked(int levelNum)
+    {
+        return PlayerPrefs.GetString(levelPrefix + levelNum.ToString(), "") == UNLOCKED;
     }
 
     public void Restart()
