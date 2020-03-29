@@ -24,13 +24,17 @@ public class MainMenuManager : MonoBehaviour
     public void StartSinglePlayer()
     {
         GameManager.instance.SetSinglePlayer(true);
+
+    }
+
+    public void Play()
+    {
         GameManager.instance.ToLevel();
     }
 
-    public void StartMultiPlayer()
+    public void ToggleSinglePlayer(bool val)
     {
-        GameManager.instance.SetSinglePlayer(false);
-        GameManager.instance.ToLevel();
+        GameManager.instance.SetSinglePlayer(!val);
     }
 
     public void Quit()
