@@ -29,4 +29,12 @@ public class WorldCanvas : MonoBehaviour
         ft.transform.position = position;
         ft.transform.SetParent(transform);
     }
+
+    public GameObject AddObject(GameObject go, Vector3 position)
+    {
+        GameObject instance = Instantiate(go);
+        instance.transform.parent = transform;
+        instance.transform.position = position;
+        return instance;
+    }
 }

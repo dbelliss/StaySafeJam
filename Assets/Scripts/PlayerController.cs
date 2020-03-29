@@ -117,6 +117,9 @@ public class PlayerController : MonoBehaviour
     float pullCooldown = .5f;
     float lastPullTime = 0;
 
+    [SerializeField]
+    GameObject playerIcon;
+
     private void Awake()
     {
         gameManager = GameManager.instance;
@@ -163,6 +166,11 @@ public class PlayerController : MonoBehaviour
         }
 
         worldCanvas = WorldCanvas.instance;
+        
+        if (GameManager.instance.isSinglePlayer())
+        {
+            playerIcon = worldCanvas.AddObject(playerIcon, transform.position);
+        }
     }
 
     // Update is called once per frame
@@ -178,7 +186,16 @@ public class PlayerController : MonoBehaviour
             isMovingRight = false;
             ClearInputs();
         }
-
+        if (playerType == PlayerType.ON)
+        {
+            playerIcon.SetActive(true);
+            playerIcon.transform.position = transform.position + Vector3.up * 1.25f;
+        }
+        else
+        {
+            playerIcon.SetActive(false);
+        }
+        
         CheckGrounded();
         UpdateAnimations();
     }
@@ -505,7 +522,6 @@ public class PlayerController : MonoBehaviour
 
     public void Toss()
     {
-        Debug.Log(name + " Tossing");
         animator.SetTrigger(animTossID);
     }
 
