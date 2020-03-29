@@ -9,6 +9,14 @@ public class RoomCamera : MonoBehaviour
     
     float transitionTime = 1f;
 
+    [SerializeField]
+    float scrollSpeed = .2f;
+
+    [SerializeField]
+    GameObject[] clouds;
+
+    Vector3 lastCloudStartPos;
+
     private void Awake()
     {
         instance = this;
@@ -20,8 +28,23 @@ public class RoomCamera : MonoBehaviour
         PixelPerfectCamera ppc = GetComponent<PixelPerfectCamera>();
         ppc.cropFrameX = true;
         ppc.cropFrameY = true;
+        lastCloudStartPos = clouds[clouds.Length - 1].transform.localPosition;
     }
 
+    public void Update()
+    {
+        // Move clouds
+        for (int i = 0; i < clouds.Length; i++)
+        {
+            GameObject cloud = clouds[i];
+            if (cloud.transform.localPosition.x < -cloud.transform.localScale.x)
+            {
+                cloud.transform.localPosition += Vector3.right * cloud.transform.localScale.x * 2;
+            }
+            cloud.transform.localPosition += Vector3.left * Time.deltaTime * scrollSpeed;
+
+        }
+    }
 
     public void StartTransition(Vector3 deltaPosition)
     {
@@ -38,6 +61,9 @@ public class RoomCamera : MonoBehaviour
         {
             float progress = (Time.time - startTime) / (endTime - startTime);
             transform.position = Vector3.Lerp(startPosition, endPosition, progress);
+
+
+
             yield return new WaitForEndOfFrame();
         }
         transform.position = endPosition;
