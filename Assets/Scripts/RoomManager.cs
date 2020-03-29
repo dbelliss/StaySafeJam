@@ -8,17 +8,29 @@ public class RoomManager : MonoBehaviour
     List<Grave> checkpoints = new List<Grave>();
 
     Grave curCheckpoint;
+    Vector3 checkpointCameraPosition;
 
     public static RoomManager instance;
     int curRoomNum = 0;
 
+    bool isRestarting = false;
     private void Awake()
     {
         instance = this;    
     }
 
+    private void Start()
+    {
+        checkpointCameraPosition = Camera.main.transform.position;
+    }
+
     public void Die()
     {
+        if (isRestarting)
+        {
+            return;
+        }
+        isRestarting = true;
         PlayerController.player1.Die();
         PlayerController.player2.Die();
         StartRespawn();
@@ -31,6 +43,7 @@ public class RoomManager : MonoBehaviour
 
     public void GraveSetCheckpoint(Grave g)
     {
+        checkpointCameraPosition = Camera.main.transform.position;
         curCheckpoint = g;
     }
 
@@ -51,9 +64,10 @@ public class RoomManager : MonoBehaviour
         yield return GameManager.instance.FadeOut(.8f);
         PlayerController.player1.Respawn();
         PlayerController.player2.Respawn();
+        Camera.main.transform.position = checkpointCameraPosition;
         yield return GameManager.instance.FadeIn(1f);
         PlayerController.blockingInput = false;
-
+        isRestarting = false;
     }
 
 }

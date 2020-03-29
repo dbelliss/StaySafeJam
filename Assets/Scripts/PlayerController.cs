@@ -102,6 +102,8 @@ public class PlayerController : MonoBehaviour
     AudioClip damagedSound;
     [SerializeField]
     AudioClip grabReleaseSound;
+    [SerializeField]
+    AudioClip pullSound;
 
     [SerializeField]
     Transform grabPivot;
@@ -111,8 +113,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     float maxSpeed = 5;
-
-    Collider2D collider;
 
     float pullCooldown = .5f;
     float lastPullTime = 0;
@@ -152,7 +152,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         jumpSource = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
@@ -537,6 +536,7 @@ public class PlayerController : MonoBehaviour
 
     public void Pulled()
     {
+        jumpSource.PlayOneShot(pullSound);
         float distance = Vector2.Distance(player1.transform.position, player2.transform.position);
         float pullpower = maxPullPower * (distance / maxDistanceJointDistance);
 

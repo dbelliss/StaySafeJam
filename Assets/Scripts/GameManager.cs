@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,12 +44,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public bool isSinglePlayer()
     {
         return singlePlayer;
@@ -86,5 +81,28 @@ public class GameManager : MonoBehaviour
         fadeCanvas.alpha = 0;
         fadeCanvas.interactable = false;
         fadeCanvas.blocksRaycasts = false;
+    }
+
+    public void ToMainMenu()
+    {
+        StartCoroutine(LoadLevel("MainMenu"));
+    }
+
+    public void ToLevel()
+    {
+        StartCoroutine(LoadLevel("MechanicsTest"));
+    }
+
+    public void Restart()
+    {
+
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
+    }
+
+    IEnumerator LoadLevel(string levelName)
+    {
+        yield return FadeOut(1f);
+        SceneManager.LoadScene(levelName);
+        yield return FadeIn(1f);
     }
 }

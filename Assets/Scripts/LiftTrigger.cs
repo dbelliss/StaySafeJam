@@ -9,6 +9,10 @@ public class LiftTrigger : MonoBehaviour
 
     Collider2D trigger;
 
+    [SerializeField]
+    GameObject following;
+    Vector3 offset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,12 @@ public class LiftTrigger : MonoBehaviour
         }
         trigger = GetComponent<Collider2D>();
         trigger.enabled = false;
+        offset = transform.position - following.transform.position;
+    }
+
+    private void FixedUpdate()
+    {
+        transform.position = offset + following.transform.position;
     }
 
     public void SetTrigger(bool isOn)

@@ -17,7 +17,7 @@ public class GameLoader : MonoBehaviour
 
     IEnumerator WaitForLogo()
     {
-        yield return new WaitForSeconds(3.5f);
-        SceneManager.LoadScene("MainMenu");
+        yield return new WaitForSeconds(2.5f);
+        GameManager.instance.ToMainMenu();
     }
 }
