@@ -224,7 +224,7 @@ public class PlayerController : MonoBehaviour
         if (groundCheck)
         {
             Debug.DrawLine(groundCheck.transform.position, groundCheck.transform.position + Vector3.down * .1f, Color.red, .5f);
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(groundCheck.position, .15f, Vector2.down, .2f);
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(groundCheck.position, .15f, Vector2.down, .05f);
             foreach (RaycastHit2D hit in hits)
             {
                 if (hit.transform.gameObject.tag == GameManager.GROUND_TAG)
