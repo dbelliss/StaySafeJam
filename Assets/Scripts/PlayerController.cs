@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     bool startGrabbing = false;
     bool stopGrabbing = false;
     bool isPulling = false;
+    bool wasPulling = false;
     bool startPulling = false;
     bool stopPulling = false;
     bool isLifting = false;
@@ -52,16 +53,13 @@ public class PlayerController : MonoBehaviour
     float liftForce = 20f;
 
     [SerializeField]
-    float movementSpeed = 1;
+    float movementForce = 1;
 
     float swapCooldown = .2f;
     float lastSwap = 0;
 
     [SerializeField]
     float friction = .4f;
-
-    [SerializeField]
-    float pullForce = 1;
 
     [SerializeField]
     float springActivationDistance = 2.5f;
@@ -92,6 +90,9 @@ public class PlayerController : MonoBehaviour
     const string animTossReadyID = "isTossReady";
     const string animTossID = "toss";
 
+    bool isBeingPulled;
+    float timeWasPulled = 0;
+
     // Music
     AudioSource jumpSource;
 
@@ -108,8 +109,13 @@ public class PlayerController : MonoBehaviour
     float grabDistance = 1f;
     Ring grabbedRing;
 
+    [SerializeField]
+    float maxSpeed = 5;
+
     Collider2D collider;
 
+    float pullCooldown = .5f;
+    float lastPullTime = 0;
 
     private void Awake()
     {
@@ -222,6 +228,11 @@ public class PlayerController : MonoBehaviour
                 if (hit.transform.gameObject.tag == GameManager.GROUND_TAG)
                 {
                     isGrounded = true;
+
+                    if (Time.time - timeWasPulled > .5f)
+                    {
+                        isBeingPulled = false;
+                    }
                     return;
                 }
             }
@@ -309,12 +320,13 @@ public class PlayerController : MonoBehaviour
         }
 
         float pull = Input.GetAxis("Pull" + playerInputIdentifier);
-        if (pull > 0) {
-            startPulling = true;
+        if (pull > 0 && !wasPulling) {
+            isPulling = true;
+            wasPulling = true;
         }
         else
         {
-            stopPulling = true;
+            wasPulling = false;
         }
 
         float lift = Input.GetAxis("Lift" + playerInputIdentifier);
@@ -345,6 +357,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(name + " velocity " + rb.velocity.ToString());
         if (this == player1)
         {
             if (Vector2.Distance(player1.transform.position, player2.transform.position) > springActivationDistance)
@@ -363,15 +376,15 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce);
         }
 
-        if (isMovingLeft)
+        if (isMovingLeft && Mathf.Abs(rb.velocity.x) < maxSpeed)
         {
-            rb.velocity = new Vector2(-1 * movementSpeed, rb.velocity.y);
+            rb.AddForce(Vector2.left * movementForce);
         }
-        else if (isMovingRight)
+        else if (isMovingRight && Mathf.Abs(rb.velocity.x) < maxSpeed)
         {
-            rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
+            rb.AddForce(Vector2.right * movementForce);
         }
-        else
+        else if (!isBeingPulled)
         {
             rb.velocity = new Vector2(rb.velocity.x * friction, rb.velocity.y);
         }
@@ -381,12 +394,9 @@ public class PlayerController : MonoBehaviour
             isPulling = true;
             //worldCanvas.SpawnText(GetTextSpawnPosition(), "Get over here!", Color.black);
         }
-        else if (stopPulling && isPulling)
+        else if (isPulling && Time.time - lastPullTime > pullCooldown)
         {
-            isPulling = false;
-        }
-        if (isPulling)
-        {
+            lastPullTime = Time.time;
             if (player1 == this)
             {
                 player2.Pulled();
@@ -458,15 +468,12 @@ public class PlayerController : MonoBehaviour
         stopLifting = false;
         isJumping = false;
         startPulling = false;
+        isPulling = false;
         stopPulling = false;
         startGrabbing = false;
         stopGrabbing = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject.tag);
-    }
 
     public void GrabRing(Ring ring)
     {
@@ -515,23 +522,22 @@ public class PlayerController : MonoBehaviour
 
     public void Pulled()
     {
-        Debug.Log("pulled");
         float distance = Vector2.Distance(player1.transform.position, player2.transform.position);
         float pullpower = maxPullPower * (distance / maxDistanceJointDistance);
 
-        Vector2 direction;
-        if (this == player1)
+        Vector2 direction = (GetOtherPlayer().transform.position - transform.position).normalized;
+
+        if (isGrounded && GetOtherPlayer().isGrounded)
         {
-            direction = (player2.transform.position - transform.position).normalized;
-        }
-        else
-        {
-            direction = (player1.transform.position - transform.position).normalized;
+            direction += Vector2.up * .5f;
         }
 
         Debug.DrawLine(transform.position, transform.position + (Vector3)direction * 5, Color.red, 1f);
 
+        Debug.Log("Pulling with force " + (direction * pullpower).ToString());
         rb.AddForce(direction * pullpower);
+        isBeingPulled = true;
+        timeWasPulled = Time.time;
     }
 
     public PlayerController GetOtherPlayer()
