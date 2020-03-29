@@ -30,14 +30,7 @@ public class LiftTrigger : MonoBehaviour
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject == toToss.gameObject)
         {
-            if (toToss == PlayerController.player1.gameObject)
-            {
-                PlayerController.player2.Toss();
-            }
-            else
-            {
-                PlayerController.player1.Toss();
-            }
+            toToss.GetOtherPlayer().Toss();
             toToss.Tossed();
         }
     }

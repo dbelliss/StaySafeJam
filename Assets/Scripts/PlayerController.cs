@@ -357,7 +357,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(name + " velocity " + rb.velocity.ToString());
         if (this == player1)
         {
             if (Vector2.Distance(player1.transform.position, player2.transform.position) > springActivationDistance)
@@ -506,7 +505,7 @@ public class PlayerController : MonoBehaviour
 
     public void Toss()
     {
-        Debug.Log("Tossing");
+        Debug.Log(name + " Tossing");
         animator.SetTrigger(animTossID);
     }
 
