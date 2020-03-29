@@ -55,7 +55,6 @@ public class BasicEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == GameManager.PLAYER_TAG)
         {
             RoomManager.instance.Die();

@@ -244,7 +244,7 @@ public class PlayerController : MonoBehaviour
             if ((Time.time - lastSwap) > swapCooldown && !isHoldingSwap && gameManager.isSinglePlayer())
             {
                 isHoldingSwap = true;
-                worldCanvas.SpawnText(GetTextSpawnPosition(), "Swap!", Color.black);
+                //worldCanvas.SpawnText(GetTextSpawnPosition(), "Swap!", Color.black);
                 lastSwap = Time.time;
                 if (playerType == PlayerType.ON)
                 {
@@ -379,7 +379,7 @@ public class PlayerController : MonoBehaviour
         if (startPulling && !isPulling)
         {
             isPulling = true;
-            worldCanvas.SpawnText(GetTextSpawnPosition(), "Get over here!", Color.black);
+            //worldCanvas.SpawnText(GetTextSpawnPosition(), "Get over here!", Color.black);
         }
         else if (stopPulling && isPulling)
         {
@@ -420,14 +420,14 @@ public class PlayerController : MonoBehaviour
 
         if (startHolding && !isHolding)
         {
-            worldCanvas.SpawnText(GetTextSpawnPosition(), "Holding tight!", Color.black);
+            //worldCanvas.SpawnText(GetTextSpawnPosition(), "Holding tight!", Color.black);
             isHolding = true;
             curDistanceJointDistance = Vector2.Distance(player1.transform.position, player2.transform.position);
             UpdateDistanceJointDistance();
         }
         if (stopHolding && isHolding)
         {
-            worldCanvas.SpawnText(GetTextSpawnPosition(), "Letting go!", Color.black);
+            //worldCanvas.SpawnText(GetTextSpawnPosition(), "Letting go!", Color.black);
             isHolding = false;
             curDistanceJointDistance = maxDistanceJointDistance;
             UpdateDistanceJointDistance();
@@ -435,14 +435,14 @@ public class PlayerController : MonoBehaviour
 
         if (startLifting && !isLifting)
         {
-            worldCanvas.SpawnText(GetTextSpawnPosition(), "Ready!", Color.black);
+            //worldCanvas.SpawnText(GetTextSpawnPosition(), "Ready!", Color.black);
             isLifting = true;
             liftTrigger.SetTrigger(true);
         }
         
         if (stopLifting && isLifting)
         {
-            worldCanvas.SpawnText(GetTextSpawnPosition(), "Done!", Color.black);
+            //worldCanvas.SpawnText(GetTextSpawnPosition(), "Done!", Color.black);
             liftTrigger.SetTrigger(false);
             isLifting = false;
         }
