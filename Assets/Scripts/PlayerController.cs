@@ -297,12 +297,12 @@ public class PlayerController : MonoBehaviour
         }
 
         float horizontal = Input.GetAxisRaw("Horizontal" + playerInputIdentifier);
-        if (horizontal > 0)
+        if (horizontal > .7f)
         {
             isMovingRight = true;
             isMovingLeft = false;
         }
-        else if(horizontal < 0)
+        else if(horizontal < -.7f)
         {
             isMovingLeft = true;
             isMovingRight = false;
@@ -543,7 +543,6 @@ public class PlayerController : MonoBehaviour
 
         Debug.DrawLine(transform.position, transform.position + (Vector3)direction * 5, Color.red, 1f);
 
-        Debug.Log("Pulling with force " + (direction * pullpower).ToString());
         rb.AddForce(direction * pullpower);
         isBeingPulled = true;
         timeWasPulled = Time.time;
@@ -570,8 +569,6 @@ public class PlayerController : MonoBehaviour
 
     public void Respawn()
     {
-        Debug.Log("Respawning " + playerType);
-        animator.SetTrigger(animRespawnID);
         transform.position = RoomManager.instance.GetCheckpoint().transform.position + new Vector3(Random.Range(-.5f, .5f), 0, 0);
     }
 

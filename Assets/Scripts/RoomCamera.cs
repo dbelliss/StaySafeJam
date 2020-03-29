@@ -43,7 +43,6 @@ public class RoomCamera : MonoBehaviour
         cloudWidth = clouds[0].GetComponent<SpriteRenderer>().sprite.rect.width / 16f + offset;
         for (int i = 0; i < clouds.Length; i++)
         {
-            Debug.Log(cloudWidth);
             GameObject cloud = clouds[i];
             if (cloud.transform.localPosition.x < -cloudWidth)
             {

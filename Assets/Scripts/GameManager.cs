@@ -49,6 +49,11 @@ public class GameManager : MonoBehaviour
         return singlePlayer;
     }
 
+    public void SetSinglePlayer(bool val)
+    {
+        singlePlayer = val;
+    }
+
     public IEnumerator FadeOut(float fadeTime)
     {
         float startTime = Time.time;
@@ -62,8 +67,6 @@ public class GameManager : MonoBehaviour
         }
 
         fadeCanvas.alpha = 1;
-        fadeCanvas.interactable = true;
-        fadeCanvas.blocksRaycasts = true;
     }
 
     public IEnumerator FadeIn(float fadeTime)

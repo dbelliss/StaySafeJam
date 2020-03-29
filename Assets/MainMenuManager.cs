@@ -16,8 +16,15 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
-    public void StartGame()
+    public void StartSinglePlayer()
     {
+        GameManager.instance.SetSinglePlayer(true);
+        GameManager.instance.ToLevel();
+    }
+
+    public void StartMultiPlayer()
+    {
+        GameManager.instance.SetSinglePlayer(false);
         GameManager.instance.ToLevel();
     }
 

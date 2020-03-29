@@ -63,7 +63,6 @@ public class TransitionWall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger enter" + collision.tag);
         if (collision.gameObject == PlayerController.player1.gameObject)
         {
             Debug.Log("Player1 is going " + wallDir.ToString());
@@ -71,7 +70,6 @@ public class TransitionWall : MonoBehaviour
         }
         else if (collision.gameObject == PlayerController.player2.gameObject)
         {
-            Debug.Log("Player2 is going " + wallDir.ToString());
             isPlayer2Inside = true;
         }
     }
