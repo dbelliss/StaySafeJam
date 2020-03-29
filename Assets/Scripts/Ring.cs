@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Ring : MonoBehaviour
 {
-    RingManager ringManager;
+  RingManager ringManager;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        ringManager = RingManager.instance;
-        ringManager.AddRing(this);
+  // Start is called before the first frame update
+  void Start()
+  {
+    ringManager = RingManager.instance;
+    ringManager.AddRing(this);
+  }
 
-    }
 }

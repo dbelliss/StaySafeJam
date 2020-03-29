@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
   [SerializeField]
   Transform grabPivot;
   [SerializeField]
-  float grabDistance = 1f;
+  float grabDistance = 1.5f;
 
   [SerializeField]
   float maxSpeed = 5;
@@ -511,9 +511,10 @@ public class PlayerController : MonoBehaviour
     {
       jumpSource.PlayOneShot(grabSound);
     }
+
     curRing = ring;
     Vector3 pivotOffset = grabPivot.localPosition;
-    transform.position = ring.transform.position - pivotOffset;
+    transform.position = ring.transform.position - pivotOffset - new Vector3(0, .5f);
     rb.velocity = new Vector2(rb.velocity.x, 0);
   }
 
