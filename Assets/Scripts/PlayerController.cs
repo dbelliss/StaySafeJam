@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static bool blockingInput = false;
+    
+    bool isPlayerHoldingRope = false;
 
     [SerializeField]
     PlayerType playerType;
@@ -109,7 +111,6 @@ public class PlayerController : MonoBehaviour
     Transform grabPivot;
     [SerializeField]
     float grabDistance = 1f;
-    Ring grabbedRing;
 
     [SerializeField]
     float maxSpeed = 5;
@@ -162,13 +163,6 @@ public class PlayerController : MonoBehaviour
         if (groundCheck == null)
         {
             Debug.LogError("No ground check set for " + name);
-        }
-
-        worldCanvas = WorldCanvas.instance;
-        
-        if (GameManager.instance.isSinglePlayer())
-        {
-            playerIcon = worldCanvas.AddObject(playerIcon, transform.position);
         }
     }
 
@@ -579,5 +573,10 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Respawning " + playerType);
         animator.SetTrigger(animRespawnID);
         transform.position = RoomManager.instance.GetCheckpoint().transform.position + new Vector3(Random.Range(-.5f, .5f), 0, 0);
+    }
+
+    public static bool IsRopeHeld()
+    {
+        return player1.isHolding || player2.isHolding;
     }
 }

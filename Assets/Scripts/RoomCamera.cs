@@ -15,7 +15,9 @@ public class RoomCamera : MonoBehaviour
     [SerializeField]
     GameObject[] clouds;
 
-    Vector3 lastCloudStartPos;
+    [SerializeField]
+    float offset = 5;
+    float cloudWidth;
 
     private void Awake()
     {
@@ -28,21 +30,26 @@ public class RoomCamera : MonoBehaviour
         PixelPerfectCamera ppc = GetComponent<PixelPerfectCamera>();
         ppc.cropFrameX = true;
         ppc.cropFrameY = true;
-        lastCloudStartPos = clouds[clouds.Length - 1].transform.localPosition;
     }
 
     public void Update()
     {
+
+        if (clouds.Length == 0)
+        {
+            return;
+        }
         // Move clouds
+        cloudWidth = clouds[0].GetComponent<SpriteRenderer>().sprite.rect.width / 16f + offset;
         for (int i = 0; i < clouds.Length; i++)
         {
+            Debug.Log(cloudWidth);
             GameObject cloud = clouds[i];
-            if (cloud.transform.localPosition.x < -cloud.transform.localScale.x)
+            if (cloud.transform.localPosition.x < -cloudWidth)
             {
-                cloud.transform.localPosition += Vector3.right * cloud.transform.localScale.x * 2;
+                cloud.transform.localPosition += Vector3.right * cloudWidth * 2;
             }
             cloud.transform.localPosition += Vector3.left * Time.deltaTime * scrollSpeed;
-
         }
     }
 

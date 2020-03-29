@@ -6,7 +6,7 @@ public class VertletRope : MonoBehaviour
 {
     private LineRenderer lr;
     private float ropeSegmentLength = 0.25f;    
-    private float ropeWidth = 0.1f;
+    private float ropeWidth = 0.06f;
     private int numSegments = 20;
     private List<VertletSegment> vertletSegments = new List<VertletSegment>();
 
@@ -52,6 +52,10 @@ public class VertletRope : MonoBehaviour
             lineColor = Color.yellow;
         }
 
+        if (PlayerController.IsRopeHeld())
+        {
+            lineColor = Color.cyan;
+        }
 
         lr.startColor = lineColor;
         lr.endColor = lineColor;
