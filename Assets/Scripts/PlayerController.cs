@@ -182,6 +182,7 @@ public class PlayerController : MonoBehaviour
     }
 
     UpdateAnimations();
+    Debug.DrawLine(transform.position, transform.position + (Vector3)(rb.velocity.normalized * 2), Color.green, .5f);
   }
 
   void UpdateAnimations()
