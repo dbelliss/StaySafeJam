@@ -398,11 +398,11 @@ public class PlayerController : MonoBehaviour
             curJumpBoosts = 0;
         }
 
-        if (isMovingLeft && Mathf.Abs(rb.velocity.x) < maxSpeed)
+        if (isMovingLeft && Mathf.Abs(rb.velocity.x) < maxSpeed && !isLifting)
         {
             rb.AddForce(Vector2.left * movementForce);
         }
-        else if (isMovingRight && Mathf.Abs(rb.velocity.x) < maxSpeed)
+        else if (isMovingRight && Mathf.Abs(rb.velocity.x) < maxSpeed && !isLifting)
         {
             rb.AddForce(Vector2.right * movementForce);
         }
@@ -470,7 +470,7 @@ public class PlayerController : MonoBehaviour
             StartLifting();
         }
 
-        if (stopLifting && isLifting)
+        if (stopLifting && isLifting || !isGrounded)
         {
             StopLifting();
         }
