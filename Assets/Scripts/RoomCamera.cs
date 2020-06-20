@@ -59,7 +59,8 @@ public class RoomCamera : MonoBehaviour
 
     IEnumerator Transition(Vector3 endPosition)
     {
-        PlayerController.blockingInput = true;
+        PlayerController.player1.blockingInput = false;
+        PlayerController.player2.blockingInput = false;
         Vector3 startPosition = transform.position;
         float startTime = Time.time;
         float endTime = Time.time + transitionTime;
@@ -73,6 +74,7 @@ public class RoomCamera : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         transform.position = endPosition;
-        PlayerController.blockingInput = false;
+        PlayerController.player1.blockingInput = false;
+        PlayerController.player2.blockingInput = false;
     }
 }

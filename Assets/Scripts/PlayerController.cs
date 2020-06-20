@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public static bool blockingInput = false;
+    public bool blockingInput = false;
 
     bool isPlayerHoldingRope = false;
 

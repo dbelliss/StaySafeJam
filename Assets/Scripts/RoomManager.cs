@@ -59,14 +59,16 @@ public class RoomManager : MonoBehaviour
 
     private IEnumerator Respawn()
     {
-        PlayerController.blockingInput = true;
+        PlayerController.player1.blockingInput = false;
+        PlayerController.player2.blockingInput = false;
         yield return new WaitForSeconds(.3f);
         yield return GameManager.instance.FadeOut(.8f);
         PlayerController.player1.Respawn();
         PlayerController.player2.Respawn();
         Camera.main.transform.position = checkpointCameraPosition;
         yield return GameManager.instance.FadeIn(1f);
-        PlayerController.blockingInput = false;
+        PlayerController.player1.blockingInput = false;
+        PlayerController.player2.blockingInput = false;
         isRestarting = false;
     }
 
